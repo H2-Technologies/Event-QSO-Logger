@@ -2,6 +2,24 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 use tauri_plugin_updater::UpdaterExt;
 
+#[tauri::command]
+async fn check_internet_connection() -> bool {
+    // create an exponential backoff up to a max of 10 minutes
+    let mut seconds = 1;
+    let max_delay = 600;
+    while seconds < max_delay {
+        match reqwest::get("https://www.google.com").await {
+            Ok(_) => return true,
+            Err(_) => {
+                println!("No internet connection, retrying in {} seconds", seconds);
+                std::thread::sleep(std::time::Duration::from_secs(seconds));
+                seconds *= 2;
+            }
+        }
+    }
+    false
+}
+
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
 fn greet(name: &str) -> String {
@@ -20,20 +38,20 @@ fn main() {
             tauri::async_runtime::spawn(async move {
                 let response = handle.updater().expect("REASON").check().await; // If .await?; works in the setup hook you can remove the if let Ok line - can't try that myself right now.
                 if let Ok(response) = response {
-                  if let Some(response) = response {
-                    // The first || {} ignores the download progress
-                    // The second || {} ignores the download finished event
-                    // If you wanna handle them you can write actual functions instead
-                    let _ = response.download_and_install(|_,_| {}, || {}).await; // this returns a result you may wanna handle
-                    println!("Update downloaded and installed");
-                    println!("{:?}", response);
-                  }
+                    if let Some(response) = response {
+                        // The first || {} ignores the download progress
+                        // The second || {} ignores the download finished event
+                        // If you wanna handle them you can write actual functions instead
+                        let _ = response.download_and_install(|_, _| {}, || {}).await; // this returns a result you may wanna handle
+                        println!("Update downloaded and installed");
+                        println!("{:?}", response);
+                    }
                 }
             });
             Ok(())
         })
         .plugin(tauri_plugin_window::init())
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![greet, check_internet_connection])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
