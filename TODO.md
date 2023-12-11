@@ -1,0 +1,12 @@
+#To Be Done
+- [ ]: Authentication
+- [ ]: Create Roles for Users
+- [ ]: Allow user with proper role to create new Tables for events
+- [ ]: Allow Users with proper role to add the Authorization to log to the table
+- [ ]: Create a way to view the logs
+- [ ]: Create a way to Modify User Roles and Permissions
+- [ ]: Create a way to Modify User Passwords
+- [ ]: Create a way to Modify User Emails
+- [ ]: Create a way to Modify User Names
+- [ ]: Create a way to Modify User Callsigns
+- [ ]: Create a 2FA system with Email, TOTP, and Hardware Key Support
