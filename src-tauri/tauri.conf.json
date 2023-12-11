@@ -14,14 +14,21 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.tauri.dev",
+      "identifier": "dev.austinh.event-qso-logger",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
         "icons/128x128@2x.png",
         "icons/icon.icns",
         "icons/icon.ico"
-      ]
+      ],
+      "updater": {
+        "active": true,
+        "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDkwNDAxRkFFQjNDRjQ3RkQKUldUOVI4K3pyaDlBa0dzZGVIelh4S1RTN3dicCt0QWxoaEFOSUowRWZVak13Ly9hdmlISEVwSTYK",
+        "windows": {
+          "installMode": "passive"
+        }
+      }
     },
     "security": {
       "csp": null
@@ -39,6 +46,11 @@
   "plugins": {
     "shell": {
       "open": true
+    },
+    "updater": {
+      "endpoints": [
+        "https://github.com/H2-Technologies/event-qso-logger/releases/latest/download/latest.json"
+      ]
     }
   }
 }
