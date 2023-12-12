@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 pnpm-lock.yaml
+
+# do not ignore the KE8YGW.log file
+!KE8YGW.log
