@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  dotenv:
+    specifier: ^16.3.1
+    version: 16.3.1
+
 devDependencies:
   '@tauri-apps/cli':
     specifier: ^2.0.0-alpha.17
@@ -117,3 +122,8 @@ packages:
       '@tauri-apps/cli-win32-ia32-msvc': 2.0.0-alpha.18
       '@tauri-apps/cli-win32-x64-msvc': 2.0.0-alpha.18
     dev: true
+
+  /dotenv@16.3.1:
+    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
+    engines: {node: '>=12'}
+    dev: false
