@@ -4,15 +4,14 @@
 - [ ]: Authentication
 - [✔️]: Create Roles for Users
 
+# Austin - Work On These
 - [ ]: Create a way to Modify User Passwords
 - [ ]: Create a way to Modify User Emails
 - [ ]: Create a way to Modify User Names
 - [ ]: Create a way to Modify User Callsigns
-
 - [ ]: Create a way to Modify User Roles and Permissions
 
-
-
+# Sam - Work On These as neither of us wanted to do them
 - [ ]: Create a way to view the logs
 - [ ]: Create a way to export the logs to Cabrillo format and ADIF format
 - [ ]: Create a way to import the logs from Cabrillo format and ADIF format
