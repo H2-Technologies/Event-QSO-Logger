@@ -111,5 +111,5 @@ button {
 }
 
 .transition-colors {
-  @apply tansition-colors duration-300 ease-in-out;
+  @apply transition-colors duration-300 ease-in-out;
 }
