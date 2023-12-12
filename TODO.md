@@ -19,5 +19,5 @@
 
 
 # Deonte - Attempting to get familiar with supabase docs (vanilla JS)
-- [ ]: Allow user with proper role to create new Tables for eventsg 
-- [ ]: Allow Users with proper role to add the Authorization to loto the table
+- [ ]: Allow user with proper role to create new Tables for events
+- [ ]: Allow Users with proper role to add the Authorization to loto the tabl
