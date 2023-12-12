@@ -1,3 +1,5 @@
+- ✔️ , ❌ 
+
 #To Be Done
 - [ ]: Authentication
 - [✔️]: Create Roles for Users
@@ -16,4 +18,3 @@
 - [ ]: Create a way to export the logs to Cabrillo format and ADIF format
 - [ ]: Create a way to import the logs from Cabrillo format and ADIF format
 - [ ]: Create a way to export the logs to an ARRL Field Day format pdf
-- ✔️ , ❌ 
