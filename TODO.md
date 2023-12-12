@@ -11,10 +11,14 @@
 
 - [ ]: Create a way to Modify User Roles and Permissions
 
-- [ ]: Allow user with proper role to create new Tables for events
-- [ ]: Allow Users with proper role to add the Authorization to log to the table
+
 
 - [ ]: Create a way to view the logs
 - [ ]: Create a way to export the logs to Cabrillo format and ADIF format
 - [ ]: Create a way to import the logs from Cabrillo format and ADIF format
 - [ ]: Create a way to export the logs to an ARRL Field Day format pdf
+
+
+# Deonte - Attempting to get familiar with supabase docs (vanilla JS)
+- [ ]: Allow user with proper role to create new Tables for eventsg 
+- [ ]: Allow Users with proper role to add the Authorization to loto the table
