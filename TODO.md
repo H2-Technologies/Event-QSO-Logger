@@ -1,6 +1,6 @@
 #To Be Done
 - [ ]: Authentication
-- [ ]: Create Roles for Users
+- [✔️]: Create Roles for Users
 - [ ]: Create a way to Modify User Passwords
 - [ ]: Create a way to Modify User Emails
 - [ ]: Create a way to Modify User Names
