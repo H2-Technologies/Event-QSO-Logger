@@ -1,3 +1,4 @@
+/* SUPABASE URL AND KEY ARE IN @/src/js/env/env.js PUT THERE FOR OPTIMIZATION AND ORGANIZATION. IT SYNCS, IT WORKS!!!! */
 let supabase = window.supabase;
 
 import {supabaseUrl, supabaseKey} from "/env/env.js";
