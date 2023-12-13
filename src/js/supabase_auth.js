@@ -1,9 +1,12 @@
-let createClient = window.supabase.createClient;
+let supabase = window.supabase;
 
 const supabaseUrl = "http://127.0.0.1:54321";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0";
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+function init_supabase() {
+  let client = supabase.createClient(supabaseUrl, supabaseKey);
+  return client;
+}
 
 function collect_auth_data() {
   const email = document.getElementById("email").value;
@@ -12,8 +15,9 @@ function collect_auth_data() {
 }
 
 async function signup() {
+  let supabaseClient = init_supabase();
   const { email, password } = collect_auth_data();
-  const { user, session, error } = await supabase.auth.signUp({
+  const { user, session, error } = await supabaseClient.auth.signUp({
     email,
     password,
   });
@@ -21,8 +25,9 @@ async function signup() {
 }
 
 async function login() {
+  let supabaseClient = init_supabase();
   const { email, password } = collect_auth_data();
-  const { user, session, error } = await supabase.auth.signIn({
+  const { user, session, error } = await supabaseClient.auth.signIn({
     email,
     password,
   });
@@ -30,7 +35,8 @@ async function login() {
 }
 
 async function logout() {
-  const { error } = await supabase.auth.signOut();
+  let supabaseClient = init_supabase();
+  const { error } = await supabaseClient.auth.signOut();
   console.log(error);
 }
 
