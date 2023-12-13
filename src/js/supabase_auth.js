@@ -1,7 +1,10 @@
-/* SUPABASE URL AND KEY ARE IN @/src/js/env/env.js PUT THERE FOR OPTIMIZATION AND ORGANIZATION. IT SYNCS, IT WORKS!!!! */
+/*removing the env soon..doesn't work as intended...*/
 let supabase = window.supabase;
+const supabaseUrl = "https://dxumeuxxjloeykdfwlkz.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4dW1ldXh4amxvZXlrZGZ3bGt6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDIyNTg1NzQsImV4cCI6MjAxNzgzNDU3NH0.XsGAtlYPsf4bWKrzLobL1bLTgRQnS0acNV9rPrCBw6s";
 
-import {supabaseUrl, supabaseKey} from "/env/env.js";
+
+
 async function init_supabase() {
   let client = supabase.createClient(supabaseUrl, supabaseKey);
   return client;
@@ -21,6 +24,7 @@ async function signup() {
     password,
   });
   console.log(data, error);
+  //console.log(supabaseClient.auth.user())
 }
 
 async function login() {
@@ -50,5 +54,7 @@ document.getElementById("authForm").addEventListener("submit", (event) => {
     signup();
   } else if (event.submitter === loginButton) {
     login();
+  } else {
+    window.location.href = "index.html";
   }
 });

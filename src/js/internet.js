@@ -1,3 +1,4 @@
+
 let invoke = window.__TAURI__.primitives.invoke;
 var signupButton = document.getElementById("signupButton");
 
@@ -12,6 +13,7 @@ async function test_internet() {
     signupButton.style.textDecoration = "line-through";
     console.log("Sucks to be u.")
   }
+  
 
 
 }
