@@ -3,6 +3,7 @@
 #To Be Done
 - [ ]: Authentication
 - [✔️]: Create Roles for Users
+- [ ]: Try-Catch to the login errors (verify email, etc.)
 
 # Austin - Work On These
 - [ ]: Create a way to Modify User Passwords
