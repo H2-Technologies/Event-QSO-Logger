@@ -3,7 +3,7 @@ let supabase = window.supabase;
 const supabaseUrl = "http://127.0.0.1:54321";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0";
 
-function init_supabase() {
+async function init_supabase() {
   let client = supabase.createClient(supabaseUrl, supabaseKey);
   return client;
 }
@@ -15,27 +15,28 @@ function collect_auth_data() {
 }
 
 async function signup() {
-  let supabaseClient = init_supabase();
+  let supabaseClient = await init_supabase();
   const { email, password } = collect_auth_data();
-  const { user, session, error } = await supabaseClient.auth.signUp({
+  const { data, error } = await supabaseClient.auth.signUp({
     email,
     password,
   });
-  console.log(user, session, error);
+  console.log(data, error);
 }
 
 async function login() {
-  let supabaseClient = init_supabase();
+  let supabaseClient = await init_supabase();
   const { email, password } = collect_auth_data();
-  const { user, session, error } = await supabaseClient.auth.signIn({
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
     email,
     password,
   });
-  console.log(user, session, error);
+  console.log(data.session.access_token, error);
+  window.localStorage.setItem("supabase.auth.token", data.session.access_token);
 }
 
 async function logout() {
-  let supabaseClient = init_supabase();
+  let supabaseClient = await init_supabase();
   const { error } = await supabaseClient.auth.signOut();
   console.log(error);
 }
