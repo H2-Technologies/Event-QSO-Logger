@@ -30,13 +30,26 @@ async function signup() {
 async function login() {
   let supabaseClient = await init_supabase();
   const { email, password } = collect_auth_data();
+
   const { data, error } = await supabaseClient.auth.signInWithPassword({
     email,
     password,
   });
-  console.log(data.session.access_token, error);
-  window.localStorage.setItem("supabase.auth.token", data.session.access_token);
+
+  if (error) {
+    console.error('Login error:', error);
+    alert('Login failed: ' + error.message);
+    return;
+  }
+
+  if (data && data.session) {
+    console.log('Access token:', data.session.access_token);
+    window.localStorage.setItem("supabase.auth.token", data.session.access_token);
+  } else {
+    console.error('Unexpected response format:', data);
+  }
 }
+
 
 async function logout() {
   let supabaseClient = await init_supabase();
