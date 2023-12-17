@@ -20,7 +20,7 @@ document.getElementById("qso-form").addEventListener("submit", function(e) {
             mode: mode
         }),
         headers: {
-            "Content-Type": "application/json;"
+            "Content-Type": "text/plain;"
         },
         mode: "no-cors"
     })
