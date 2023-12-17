@@ -1,5 +1,6 @@
 document.getElementById("qso-form").addEventListener("submit", function(e) {
     e.preventDefault();
+    var band = document.getElementById("band").value;
     var callsign = document.getElementById("callsign").value;
     var frequency = document.getElementById("frequency").value;
     var mode = document.getElementById("mode").value;
@@ -8,16 +9,21 @@ document.getElementById("qso-form").addEventListener("submit", function(e) {
     localStorage.setItem("frequency", frequency);
     localStorage.setItem("mode", mode);
     // create a post request to the server
-    var xhr = new XMLHttpRequest();
-    var data = JSON.stringify({
-        callsign: callsign,
-        exchange: exchange,
-        frequency: frequency,
-        mode: mode
-    });
-    xhr.open("POST", "/qso", true);
-    xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
-    xhr.send(data);
+    let url = "http://localhost:4000/qso/" + callsign;
+    fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+            band: band,
+            callsign: callsign,
+            exchange: exchange,
+            frequency: frequency,
+            mode: mode
+        }),
+        headers: {
+            "Content-Type": "application/json;"
+        },
+        mode: "no-cors"
+    })
     // clear the form
     document.getElementById("callsign").value = "";
     document.getElementById("callsign").focus();
