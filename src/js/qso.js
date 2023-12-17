@@ -12,6 +12,9 @@ document.getElementById("qso-form").addEventListener("submit", function(e) {
     let url = "http://localhost:4000/qso/" + callsign;
     fetch(url, {
         method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify({
             band: band,
             callsign: callsign,
@@ -19,10 +22,6 @@ document.getElementById("qso-form").addEventListener("submit", function(e) {
             frequency: frequency,
             mode: mode
         }),
-        headers: {
-            "Content-Type": "text/plain;"
-        },
-        mode: "no-cors"
     })
     // clear the form
     document.getElementById("callsign").value = "";
