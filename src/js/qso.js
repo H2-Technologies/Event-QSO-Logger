@@ -9,7 +9,7 @@ document.getElementById("qso-form").addEventListener("submit", function(e) {
     localStorage.setItem("frequency", frequency);
     localStorage.setItem("mode", mode);
     // create a post request to the server
-    let url = "http://localhost:4000/qso/" + callsign;
+    let url = "http://qsoapi.austinh.us/qso/" + callsign;
     fetch(url, {
         method: "POST",
         headers: {
