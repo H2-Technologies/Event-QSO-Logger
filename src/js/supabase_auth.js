@@ -68,7 +68,6 @@ document.getElementById("authForm").addEventListener("submit", (event) => {
   //if the submit button is the one that triggers the event, then call the signup function, otherwise call the login function
   if (event.submitter === signupButton) {
     signup();
-    window.location.href = "index.html";
   } else if (event.submitter === loginButton) {
     login();
   } else {
