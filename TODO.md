@@ -1,9 +1,9 @@
 - ✔️ , ❌ 
 
 # To Be Done
-- [ ]: Authentication
+- [✔️]: Authentication
 - [✔️]: Create Roles for Users
-- [ ]: Try-Catch to the login errors (verify email, etc.)
+- [✔️]: Try-Catch to the login errors (verify email, etc.)
 - [ ]: Setup sqlite for offline logging
 - [ ]: Auto upload log if we had offline contacts
 
