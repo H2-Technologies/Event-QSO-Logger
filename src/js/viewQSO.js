@@ -37,7 +37,7 @@ fetch(url)
       console.log(formattedDate + " " + formattedTime);
       tbody.innerHTML = data
         .map((qso) => {
-          return `<tr class="text-center">
+          return `<tr class="text-center border-b">
             <td>${qso.callsign}</td>
             <td>${qso.operator}</td>
             <td>${qso.band}</td>

@@ -68,19 +68,21 @@
     <h1>Event Qso Logger</h1>
 </div>
 <div id="app">
-    <div class="searchCallsign">
+    <div class="searchCallsign flex flex-col justify-center items-center p-3">
         <input
+
                 type="text"
                 id="callsign"
                 name="callsign"
                 placeholder="Enter Callsign To Search For"
                 required
+
         />
-        <button id="searchButton" type="button">Search</button>
+        <button class="m-3" id="searchButton" type="button">Search</button>
     </div>
     <div class="qso-table flex flex-col">
         <table id="qso-table" class="table-auto w-full text-sm text-left text-gray-500 dark:text-gray-400 text-center">
-            <thead class="text-xs text-gray-700 uppercase dark:text-gray-300">
+            <thead class="text-xs text-gray-700 uppercase dark:text-gray-300 border-b">
                 <tr>
                     <th class="px-6 py-3">Callsign</th>
                     <th class="px-6 py-3">Operator</th>
