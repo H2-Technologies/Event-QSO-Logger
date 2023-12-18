@@ -1,10 +1,10 @@
 let callsign = "KE8YGW";
-let url = "http://localhost:4000/qso/" + callsign;
+let url = "https://qsoapi.austinh.us/qso/" + callsign;
 fetch(url, {
     method: "GET",
     mode: "no-cors"
 })
-.then(response => response.json())
+.then(data => data.json())
 .then(data => {
     // convert the created_at to a data and time string
     for (let i = 0; i < data.length; i++) {

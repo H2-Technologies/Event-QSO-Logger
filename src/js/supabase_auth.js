@@ -57,6 +57,19 @@ async function logout() {
   console.log(error);
 }
 
+async function is_authed() {
+  let supabaseClient = await init_supabase();
+  const user = await supabaseClient.auth.getUser();
+  if (user) {
+    console.log(user);
+    return true;
+  } else {
+    console.log("not logged in");
+    return false;
+  }
+}
+
+if (window.location.href.includes("signup.html") || window.location.href.includes("login.html")) {
 // in the authForm id, if the signup button is clicked, call signup(), if the login button is clicked, call login()
 document.getElementById("authForm").addEventListener("submit", (event) => {
   event.preventDefault();
@@ -70,4 +83,4 @@ document.getElementById("authForm").addEventListener("submit", (event) => {
   } else {
     window.location.href = "index.html";
   }
-});
+});}
