@@ -22,6 +22,7 @@ tauri-plugin-http = "2.0.0-alpha.5"
 tauri-plugin-process = "2.0.0-alpha.4"
 tokio = { version = "1.35.0", features = ["full"] }
 reqwest = "0.11.22"
+tauri-plugin-oauth = "0.0.0-alpha.0"
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem
