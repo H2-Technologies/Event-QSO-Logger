@@ -1,21 +1,7 @@
 let callsign = "KE8YGW";
 let url = "https://qsoapi.austinh.us/qso/" + callsign;
 let tbody = document.querySelector("tbody");
-/*fetch(url, {
-    method: "GET",
-    mode: "no-cors"
-})
-.then(data => data.json())
-.then(data => {
-    // convert the created_at to a data and time string
-    for (let i = 0; i < data.length; i++) {
-        let date = new Date(data[i].created_at);
-        data[i].created_at = date.toLocaleDateString() + " " + date.toLocaleTimeString();
-    }
-    console.log(data);
 
-})
-*/
 fetch(url)
   .then((response) => {
     if (!response.ok) {
@@ -52,6 +38,3 @@ fetch(url)
   .catch((error) => {
     console.error("Fetch error:", error);
   });
-/*
-
- */
