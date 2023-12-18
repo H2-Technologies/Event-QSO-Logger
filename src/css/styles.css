@@ -4,7 +4,7 @@
   line-height: 24px;
   font-weight: 400;
 
-  color: #0f0f0f;
+  color: #1d1d1d;
   background-color: #f6f6f6;
 
   text-rendering: optimizeLegibility;
@@ -49,6 +49,7 @@ a:hover {
 
 h1 {
   text-align: center;
+  color: #818181;
 }
 
 input,
@@ -88,7 +89,7 @@ button {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    color: #f6f6f6;
+    color: #646464;
     background-color: #2f2f2f;
   }
 
@@ -104,4 +105,47 @@ button {
   button:active {
     background-color: #0f0f0f69;
   }
+}
+
+/* create a box for the form element and make all the inputs vertically seperated */
+.form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+/* style the input element */
+.form-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* style the button element */
+.form-box button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #24c8db;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Set the input placeholders to a color */
+::placeholder {
+  color: #d4d4d4;
+  opacity: 1;
 }

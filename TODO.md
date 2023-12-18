@@ -3,6 +3,9 @@
 # To Be Done
 - [ ]: Authentication
 - [✔️]: Create Roles for Users
+- [ ]: Try-Catch to the login errors (verify email, etc.)
+- [ ]: Setup sqlite for offline logging
+- [ ]: Auto upload log if we had offline contacts
 
 # Austin - Work On These
 - [ ]: Create a way to Modify User Passwords
@@ -21,5 +24,5 @@
 
 
 # Deonte - Attempting to get familiar with supabase docs (vanilla JS)
-- [ ]: Allow user with proper role to create new Tables for eventsg 
+- [ ]: Allow user with proper role to create new Tables for events
 - [ ]: Allow Users with proper role to add the Authorization to loto the table

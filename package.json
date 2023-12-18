@@ -7,7 +7,7 @@
     "tauri": "tauri"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^2.0.0-alpha.17"
+    "@tauri-apps/cli": "^2.0.0-alpha.18"
   },
   "dependencies": {
     "dotenv": "^16.3.1"
