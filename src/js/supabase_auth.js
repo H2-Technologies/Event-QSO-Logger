@@ -1,9 +1,8 @@
 /*removing the env soon..doesn't work as intended...*/
 let supabase = window.supabase;
 const supabaseUrl = "https://dxumeuxxjloeykdfwlkz.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4dW1ldXh4amxvZXlrZGZ3bGt6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDIyNTg1NzQsImV4cCI6MjAxNzgzNDU3NH0.XsGAtlYPsf4bWKrzLobL1bLTgRQnS0acNV9rPrCBw6s";
-
-
+const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4dW1ldXh4amxvZXlrZGZ3bGt6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDIyNTg1NzQsImV4cCI6MjAxNzgzNDU3NH0.XsGAtlYPsf4bWKrzLobL1bLTgRQnS0acNV9rPrCBw6s";
 
 async function init_supabase() {
   let client = supabase.createClient(supabaseUrl, supabaseKey);
@@ -39,20 +38,22 @@ async function login() {
   });
 
   if (error) {
-    console.error('Login error:', error);
-    alert('Login failed: ' + error.message);
+    console.error("Login error:", error);
+    alert("Login failed: " + error.message);
     return;
   }
 
   if (data && data.session) {
-    console.log('Access token:', data.session.access_token);
-    window.localStorage.setItem("supabase.auth.token", data.session.access_token);
+    console.log("Access token:", data.session.access_token);
+    window.localStorage.setItem(
+      "supabase.auth.token",
+      data.session.access_token
+    );
     window.location.href = "index.html";
   } else {
-    console.error('Unexpected response format:', data);
+    console.error("Unexpected response format:", data);
   }
 }
-
 
 async function logout() {
   let supabaseClient = await init_supabase();

@@ -3,13 +3,13 @@ let url = "https://qsoapi.austinh.us/qso/" + callsign;
 let tbody = document.querySelector("tbody");
 
 document.addEventListener("DOMContentLoaded", () => {
-    //get the submit button and add an event listener
-    document.getElementById("searchButton").addEventListener("click", () => {
-        //get the value of the input field
-        callsign = document.querySelector("#callsign").value;
-        url = "https://qsoapi.austinh.us/qso/" + callsign;
-        QSO_func(url);
-    });
+  //get the submit button and add an event listener
+  document.getElementById("searchButton").addEventListener("click", () => {
+    //get the value of the input field
+    callsign = document.querySelector("#callsign").value;
+    url = "https://qsoapi.austinh.us/qso/" + callsign;
+    QSO_func(url);
+  });
 });
 
 function QSO_func(url) {
