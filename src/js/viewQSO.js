@@ -30,18 +30,25 @@ fetch(url)
     .then(data => {
         for (let i = 0; i < data.length; i++) {
             let date = new Date(data[i].created_at);
-            data[i].created_at = date.toLocaleDateString() + " " + date.toLocaleTimeString();
-        }
-        tbody.innerHTML = data.map(qso => {
-            return `<tr>
-            <td>${qso.band}</td>
+
+
+            let formattedDate = date.toLocaleDateString(); // Converts to local date string
+            let formattedTime = date.toLocaleTimeString(); // Converts to local time string
+
+            console.log(formattedDate + ' ' + formattedTime);
+            tbody.innerHTML = data.map(qso => {
+                return `<tr>
             <td>${qso.callsign}</td>
-            <td>${qso.exchange}</td>
-            <td>${qso.frequency}</td>
+            <td>${qso.operator}</td>
+            <td>${qso.band}</td>
             <td>${qso.mode}</td>
-            <td>${qso.created_at}</td>
-        </tr>`;
-        }).join("");
+            <td>${formattedDate}</td>
+            <td>${formattedTime}</td>
+            </tr>`;
+            }).join("");
+
+        }
+
     })
     .catch(error => {
         console.error('Fetch error:', error);
