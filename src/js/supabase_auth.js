@@ -32,21 +32,21 @@ async function login() {
   const { email, password } = collect_auth_data();
 
   const { data, error } = await supabaseClient.auth.signInWithPassword({
-    email,
-    password,
+    email: email,
+    password: password,
   });
-
-  if (error) {
-    console.error('Login error:', error);
-    alert('Login failed: ' + error.message);
-    return;
-  }
 
   if (data && data.session) {
     console.log('Access token:', data.session.access_token);
     window.localStorage.setItem("supabase.auth.token", data.session.access_token);
   } else {
     console.error('Unexpected response format:', data);
+  }
+
+  if (error) {
+    console.error('Login error:', error);
+    alert('Login failed: ' + error.message);
+    return;
   }
 }
 
@@ -58,15 +58,37 @@ async function logout() {
 }
 
 async function is_authed() {
-  let supabaseClient = await init_supabase();
-  const user = await supabaseClient.auth.getUser();
-  if (user) {
-    console.log(user);
-    return true;
+  //get the token from local storage and check if it's valid
+  let token = window.localStorage.getItem("supabase.auth.token");
+  if (token) {
+    let supabaseClient = await init_supabase();
+    const { data, error } = await supabaseClient.auth.api.getUser(token);
+    if (error) {
+      console.error('Auth error:', error);
+      return false;
+    }
+    if (data) {
+      console.log('User data:', data);
+      return true;
+    }
   } else {
     console.log("not logged in");
     return false;
   }
+
+  //let supabaseClient = await init_supabase();
+  //const user = await supabaseClient.auth.getUser();
+  //if (user) {
+  //  console.log(user);
+  //  return true;
+  //} else {
+  //  console.log("not logged in");
+  //  return false;
+  //}
+}
+
+async function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 if (window.location.href.includes("signup.html") || window.location.href.includes("login.html")) {
@@ -77,9 +99,11 @@ document.getElementById("authForm").addEventListener("submit", (event) => {
   const loginButton = document.getElementById("loginButton");
   //if the submit button is the one that triggers the event, then call the signup function, otherwise call the login function
   if (event.submitter === signupButton) {
-    signup();
+    signup().await;
+    window.location.href = "index.html";
   } else if (event.submitter === loginButton) {
-    login();
+    login().await;
+    window.location.href = "index.html";
   } else {
     window.location.href = "index.html";
   }
