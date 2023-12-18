@@ -7,9 +7,6 @@
     {
       "name": "supabase-functions",
       "path": "supabase/functions"
-    },
-    {
-      "path": "../qsoapi"
     }
   ],
   "settings": {
